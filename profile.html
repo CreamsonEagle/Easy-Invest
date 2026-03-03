@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Vault | My Profile</title>
+    <style>
+        :root { --primary: #00d2ff; --glass: rgba(255, 255, 255, 0.1); --success: #00ff88; }
+        body { font-family: 'Inter', sans-serif; background: #0f2027; color: white; margin: 0; padding-bottom: 100px; }
+        
+        .profile-header { background: linear-gradient(to bottom, #203a43, #0f2027); padding: 40px 20px; text-align: center; border-bottom: 1px solid var(--glass); }
+        .avatar { width: 80px; height: 80px; background: var(--primary); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; border: 4px solid var(--glass); }
+        
+        .status-badge { background: var(--success); color: black; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+
+        .menu-container { padding: 20px; }
+        .menu-item { 
+            background: var(--glass); 
+            margin-bottom: 12px; 
+            padding: 18px; 
+            border-radius: 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.2s;
+        }
+        .menu-item:active { transform: scale(0.98); background: rgba(255,255,255,0.2); }
+        .icon-box { display: flex; align-items: center; gap: 15px; }
+        
+        .security-card { background: rgba(255, 255, 255, 0.05); margin: 20px; padding: 20px; border-radius: 20px; border: 1px dashed var(--primary); }
+        .progress-bar { width: 100%; height: 8px; background: #333; border-radius: 10px; margin-top: 10px; overflow: hidden; }
+        .progress-fill { width: 85%; height: 100%; background: var(--primary); }
+
+        /* Navigation */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: rgba(15, 32, 39, 0.95); display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid var(--glass); backdrop-filter: blur(10px); }
+        .nav-link { color: #aaa; text-decoration: none; font-size: 11px; text-align: center; }
+        .nav-link.active { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="profile-header">
+        <div class="avatar">👤</div>
+        <h2>User_77291</h2>
+        <span class="status-badge">VERIFIED INVESTOR</span>
+    </div>
+
+    <div class="security-card">
+        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+            <span>Security Strength</span>
+            <span style="color: var(--primary);">85%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+    </div>
+
+    <div class="menu-container">
+        <a href="#" class="menu-item"><div class="icon-box">🏦 <span>Bank Settings</span></div> ❯</a>
+        <a href="#" class="menu-item"><div class="icon-box">📜 <span>Withdrawal Records</span></div> ❯</a>
+        <a href="#" class="menu-item"><div class="icon-box">🛡️ <span>Account Security</span></div> ❯</a>
+        <a href="#" class="menu-item"><div class="icon-box">🎁 <span>Daily Gift Code</span></div> ❯</a>
+        <a href="index.html" class="menu-item" style="border-color: #ff4757; color: #ff4757;"><div class="icon-box">🚪 <span>Logout</span></div></a>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-link">💎<br>Vault</a>
+        <a href="invest.html" class="nav-link">📈<br>Growth</a>
+        <a href="team.html" class="nav-link">👥<br>Network</a>
+        <a href="profile.html" class="nav-link active">👤<br>Account</a>
+    </nav>
+
+</body>
+</html>
+ 
