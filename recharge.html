@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Topup | Petrozaar Pro</title>
+    <style>
+        :root { --primary: #00d2ff; --glass: rgba(255, 255, 255, 0.1); --success: #00ff88; }
+        body { font-family: 'Inter', sans-serif; background: #0f2027; color: white; margin: 0; padding-bottom: 50px; }
+        
+        .header { background: rgba(255,255,255,0.05); padding: 20px; text-align: center; border-bottom: 1px solid var(--glass); display: flex; align-items: center; }
+        .back-btn { text-decoration: none; color: white; font-size: 20px; margin-right: 20px; }
+
+        .container { padding: 20px; }
+        .balance-label { font-size: 14px; opacity: 0.6; margin-bottom: 5px; }
+        .current-bal { font-size: 24px; font-weight: bold; margin-bottom: 30px; }
+
+        /* Amount Selection Grid */
+        .amount-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 30px; }
+        .amount-box { 
+            background: var(--glass); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 15px 5px; 
+            text-align: center; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            transition: 0.2s;
+            font-weight: bold;
+        }
+        .amount-box:active { background: var(--primary); color: #000; transform: scale(0.95); }
+        .amount-box.selected { border-color: var(--primary); color: var(--primary); }
+
+        .input-group { background: var(--glass); padding: 15px; border-radius: 15px; margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 12px; margin-bottom: 8px; opacity: 0.7; }
+        .input-group input { background: transparent; border: none; color: white; font-size: 20px; width: 100%; outline: none; }
+
+        .payment-info { background: rgba(0, 210, 255, 0.1); border: 1px solid var(--primary); padding: 15px; border-radius: 15px; margin-bottom: 30px; font-size: 13px; line-height: 1.5; }
+
+        .submit-btn { 
+            width: 100%; 
+            background: var(--primary); 
+            color: black; 
+            border: none; 
+            padding: 18px; 
+            border-radius: 15px; 
+            font-size: 16px; 
+            font-weight: 800; 
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,210,255,0.3);
+        }
+
+        .help-text { text-align: center; font-size: 12px; opacity: 0.5; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn">❮</a>
+        <h3 style="margin:0;">Recharge Wallet</h3>
+    </div>
+
+    <div class="container">
+        <div class="balance-label">Current Assets</div>
+        <div class="current-bal">₦500.00</div>
+
+        <div class="input-group">
+            <label>Recharge Amount (₦)</label>
+            <input type="number" id="rechargeInput" placeholder="Enter amount">
+        </div>
+
+        <div class="amount-grid">
+            <div class="amount-box" onclick="setAmount(3000)">3,000</div>
+            <div class="amount-box" onclick="setAmount(5000)">5,000</div>
+            <div class="amount-box" onclick="setAmount(10000)">10,000</div>
+            <div class="amount-box" onclick="setAmount(30000)">30,000</div>
+            <div class="amount-box" onclick="setAmount(50000)">50,000</div>
+            <div class="amount-box" onclick="setAmount(100000)">100,000</div>
+        </div>
+
+        <div class="payment-info">
+            <b>💡 Payment Notice:</b><br>
+            Please ensure you transfer the exact amount selected. Transfers are processed via our automated secure gateway. Minimum recharge: ₦2,000.
+        </div>
+
+        <button class="submit-btn" onclick="processRecharge()">CONFIRM RECHARGE</button>
+
+        <p class="help-text">Secured by 256-bit SSL Encryption</p>
+    </div>
+
+    <script>
+        function setAmount(val) {
+            document.getElementById('rechargeInput').value = val;
+        }
+
+        function processRecharge() {
+            const amt = document.getElementById('rechargeInput').value;
+            if(amt < 2000) {
+                alert("Minimum recharge is ₦2,000");
+            } else {
+                alert("Generating unique payment account for ₦" + amt + "...");
+                // In a real site, this would redirect to Paystack/Flutterwave
+            }
+        }
+ 
