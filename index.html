@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrozaar Pro | Dashboard</title>
+    <style>
+        :root { --primary: #00d2ff; --secondary: #3a7bd5; --glass: rgba(255, 255, 255, 0.15); }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: white; margin: 0; padding-bottom: 80px; overflow-x: hidden; }
+        
+        /* Ticker */
+        .ticker-bar { background: rgba(0,0,0,0.5); padding: 8px; font-size: 12px; border-bottom: 1px solid var(--primary); }
+        .ticker-text { display: inline-block; white-space: nowrap; animation: scroll 25s linear infinite; color: var(--primary); }
+        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Balance Card */
+        .main-card { background: var(--glass); margin: 20px; padding: 30px; border-radius: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .balance-title { font-size: 14px; opacity: 0.7; letter-spacing: 1px; }
+        .balance-value { font-size: 42px; font-weight: 800; margin: 10px 0; text-shadow: 0 0 15px var(--primary); }
+        
+        /* Quick Actions */
+        .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 20px; }
+        .btn-action { padding: 15px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .deposit { background: var(--primary); color: #000; }
+        .withdraw { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+        /* Market Pulse */
+        .market-pulse { margin: 30px 20px; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 15px; }
+        .pulse-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .up { color: #00ff88; }
+
+        /* Nav */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: rgba(15, 32, 39, 0.95); display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid var(--glass); backdrop-filter: blur(10px); }
+        .nav-link { color: #aaa; text-decoration: none; font-size: 11px; text-align: center; }
+        .nav-link.active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="ticker-bar"><div class="ticker-text" id="ticker">Loading global payouts...</div></div>
+
+    <div class="main-card">
+        <div class="balance-title">TOTAL ASSETS</div>
+        <div class="balance-value" id="mainBal">₦0.00</div>
+        <p style="font-size: 12px; color: #00ff88;">● Live Market Connection: Stable</p>
+    </div>
+
+    <div class="actions">
+        <button class="btn-action deposit" onclick="location.href='recharge.html'">RECHARGE</button>
+        <button class="btn-action withdraw">WITHDRAW</button>
+    </div>
+
+    <div class="market-pulse">
+        <h3 style="font-size: 14px; margin-top: 0;">MARKET TRENDS</h3>
+        <div class="pulse-item"><span>Crude Oil (WTI)</span><span class="up">+2.45% ▲</span></div>
+        <div class="pulse-item"><span>Natural Gas</span><span class="up">+1.12% ▲</span></div>
+        <div class="pulse-item"><span>Elite Yield Index</span><span class="up">+15.8% ▲</span></div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-link active">💎<br>Vault</a>
+        <a href="invest.html" class="nav-link">📈<br>Growth</a>
+        <a href="team.html" class="nav-link">👥<br>Network</a>
+        <a href="profile.html" class="nav-link">👤<br>Account</a>
+    </nav>
+
+    <script>
+        // Fake Payout Generator
+        const ticker = document.getElementById('ticker');
+        setInterval(() => {
+            const id = Math.floor(1000 + Math.random() * 9000);
+            const amt = (Math.floor(Math.random() * 100) + 10) * 1000;
+            ticker.innerText = `[SUCCESS] User ID_${id} just processed a withdrawal of ₦${amt.toLocaleString()} via Bank Transfer... Checking next block...`;
+        }, 4000);
+    </script>
+</body>
+</html>
