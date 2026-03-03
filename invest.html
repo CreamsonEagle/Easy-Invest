@@ -1,0 +1,28 @@
+<style>
+    /* Add to previous styles */
+    .invest-grid { padding: 20px; }
+    .tier-card { background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); border-radius: 20px; padding: 20px; margin-bottom: 25px; border-left: 5px solid var(--primary); }
+    .tier-title { font-size: 20px; font-weight: bold; color: var(--primary); display: flex; justify-content: space-between; }
+    .data-row { display: flex; justify-content: space-between; margin: 12px 0; font-size: 14px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; }
+    .data-row b { color: #00ff88; }
+    .buy-btn { width: 100%; padding: 15px; border-radius: 12px; background: white; color: #000; font-weight: 900; border: none; margin-top: 10px; cursor: pointer; }
+</style>
+<div class="invest-grid">
+    <h2 style="text-align:center;">Strategic Growth Units</h2>
+    
+    <div class="tier-card">
+        <div class="tier-title"><span>Unit: ALFA</span> <small>Level 1</small></div>
+        <div class="data-row">Entry Price: <b>₦3,000</b></div>
+        <div class="data-row">Daily Yield: <b>₦600</b></div>
+        <div class="data-row">Cycle: <b>30 Days</b></div>
+        <button class="buy-btn">ACQUIRE UNIT</button>
+    </div>
+
+    <div class="tier-card" style="border-left-color: #ff00ff;">
+        <div class="tier-title"><span style="color:#ff00ff;">Unit: OMEGA</span> <small>Level 2</small></div>
+        <div class="data-row">Entry Price: <b>₦10,000</b></div>
+        <div class="data-row">Daily Yield: <b>₦2,500</b></div>
+        <div class="data-row">Cycle: <b>30 Days</b></div>
+        <button class="buy-btn" style="background:#ff00ff; color:white;">ACQUIRE UNIT</button>
+    </div>
+</div>
